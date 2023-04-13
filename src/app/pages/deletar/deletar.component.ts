@@ -18,7 +18,7 @@ export class DeletarComponent {
   ngOnInit() {
     Swal.fire({
       title: 'Você tem certeza?',
-      text: "Não será possíverl reverter essa ação!",
+      text: "Não será possíveel reverter essa ação!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sim, excluir!'

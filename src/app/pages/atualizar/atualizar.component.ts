@@ -16,7 +16,7 @@ export class AtualizarComponent {
 
     cpf: new FormControl('', Validators.required),
     nome: new FormControl('',Validators.required),
-    telefone: new FormControl('12345678910',Validators.required),
+    telefone: new FormControl('12 34567 8910',Validators.required),
     rendimentoMensal: new FormControl(0,Validators.required),
     endereco: new FormGroup({
     rua: new FormControl('',Validators.required),
@@ -26,30 +26,31 @@ export class AtualizarComponent {
   })
 
 
-  constructor(private clientesService: ClientesService, private route: ActivatedRoute,private router: Router) {}
+  constructor(private clientesService: ClientesService, private route: ActivatedRoute, private router: Router) {}
   clienteCpf ='';
 
   ngOnInit() {
-    this.clienteCpf = String(this.route.snapshot.paramMap.get('id'));
+    this.clienteCpf = String(this.route.snapshot.paramMap.get('cpf'));
     if (this.clienteCpf != null) {
-      this.clientesService.buscarClientesPorCpf(this.clienteCpf).subscribe((cliente: IClientes) => {
+      this.clientesService.buscarClientesPorCpf(this.clienteCpf).subscribe((clientes: IClientes) => {
         this.clienteForm.setValue({
-          cpf: cliente.cpf,
-          nome: cliente.nome ,
-          telefone: cliente.telefone,
-          rendimentoMensal: cliente.rendimentoMensal,
+          cpf: clientes.cpf,
+          nome: clientes.nome ,
+          telefone: clientes.telefone,
+          rendimentoMensal: clientes.rendimentoMensal,
           endereco: {
-          rua: cliente.endereco.rua,
-          numero: cliente.endereco.numero,
-          cep: cliente.endereco.cep,
+          rua: clientes.endereco.rua,
+          numero: clientes.endereco.numero,
+          cep: clientes.endereco.cep,
           }
         })
       });
     }
   }
-  editar() {
-    const cliente: IClientes = this.clienteForm.value as IClientes;
-    this.clientesService.editarClientes(this.clienteCpf.toString(), cliente).subscribe(result => {
+   editar() {
+    const clientes: IClientes = this.clienteForm.value as IClientes;
+
+    this.clientesService.editarClientes(this.clienteCpf.toString(), clientes).subscribe(result => {
         Swal.fire(
           'Okay!',
           'Edição realizada com sucesso!',

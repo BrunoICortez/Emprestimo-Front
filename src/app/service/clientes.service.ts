@@ -21,12 +21,12 @@ export class ClientesService {
   buscarClientesPorCpf(cpf: String) {
     return this.http.get<IClientes>(`${this.api}/${this.endpoint}/${cpf}`, );
   }
-  editarClientes(cpf: string, cliente: IClientes) {
-    return this.http.put<IClientes>(`${this.api}/${this.endpoint}/${cpf}`, cliente);
+  editarClientes(cpf: string, clientes: IClientes) {
+    return this.http.put<IClientes>(`${this.api}/${this.endpoint}/${cpf}`, clientes);
   }
 
   excluirClientes(cpf: string) {
-    return this.http.delete<IClientes>(`${this.api}/${this.endpoint}/${cpf}`);
+    return this.http.delete(`${this.api}/${this.endpoint}/${cpf}`);
   }
 }
 
