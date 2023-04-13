@@ -1,0 +1,63 @@
+<h1 class="display-6">Cadastro</h1>
+<hr />
+
+
+<div class="container-fluid">
+  <form [formGroup]="clienteForm" (ngSubmit)="cadastrar()">
+
+    <div class = "row">
+      <div class ="col-12">
+        <div class = "mb3>">
+          <label for = "cpf" class = "form-label"> CPF</label>
+          <input required="" for = "cpf" Type="text" class = "form-control" formControlName = "cpf" placeholder="Digite o seu CPF..."/>
+        </div>
+      </div>
+
+
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input id="nome" Type="text" class="form-control" formControlName="nome"  placeholder="Digite o seu Nome..."/>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="telefone" class="form-label">Telefone</label>
+          <input id="telefone" type="text" class="form-control" formControlName="telefone" placeholder="Digite o seu Telefone..." />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="rendimentoMensal" class="form-label">Rendimento Mensal</label>
+          <input id="rendimentoMensal" type="number" class="form-control" formControlName="rendimentoMensal" placeholder="Digite o seu Rendimento Mensal..."/>
+        </div>
+      </div>
+
+      <div class="col-3"formGroupName="endereco">
+        <div class="mb-3">
+          <label for="rua" class="form-label">Rua</label>
+          <input id="rua" type="text" class="form-control" formControlName="rua" placeholder="Digite a sua Rua..."/>
+        </div>
+      </div>
+
+      <div class="col-3"formGroupName="endereco">
+        <div class="mb-3">
+          <label for="numero" class="form-label">Numero</label>
+          <input id="numero" type="number" class="form-control" formControlName="numero" placeholder="Digite o seu Numero..."/>
+        </div>
+      </div>
+
+      <div class="col-3"formGroupName="endereco">
+        <div class="mb-3">
+          <label for="cep" class="form-label">Cep</label>
+          <input id="cep" type="text" class="form-control" formControlName="cep" placeholder="Digite o seu CEP..."/>
+        </div>
+      </div>
+    </div>
+
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+  </form>
+</div>

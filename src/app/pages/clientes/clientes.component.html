@@ -1,0 +1,34 @@
+<h1 class="display6"> Clientes</h1>
+<hr>
+  <a routerLink ="/clientes/cadastrar" class="btn btn-outline-primary">Cadastro</a>
+    <hr>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">CPF</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">RendimentoMensal</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Cep</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clientes of clientes">
+            <th scope="row">{{clientes.cpf}}</th>
+            <td>{{clientes.nome}}</td>
+            <td>{{clientes.telefone}}</td>
+            <td>{{clientes.rendimentoMensal}}</td>
+            <td>{{clientes.endereco.rua}}</td>
+            <td>{{clientes.endereco.numero}}</td>
+            <td>{{clientes.endereco.cep}}</td>
+            <td>
+
+              <button routerLink ="/clientes/editar/{{clientes.cpf}}"type="button" class="btn btn-dark mx-1">Editar</button>
+              <button routerLink ="/clientes/excluir/{{clientes.cpf}}"type="button" class="btn btn-danger mx-1">Remover</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
